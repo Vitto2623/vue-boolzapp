@@ -21,17 +21,109 @@ main{
     height: 900px;
     width: 80%;
     margin: 0 auto;
-    background-color: lightgray;
+    background-color: white;
     display: flex;
 }
 
 .main-container .nav-bar-left{
-    height: 100%;
+    height: 90%;
     width: 35%;
+}
+
+/*NAV-BAR-LEFT*/
+.nav-bar-left #top-status{
+    display: flex;
+    justify-content: space-between;
+    height: 8%;
+    width: 100%;
+    background-color: #eaeaea;
+    border-right: 1px solid lightgrey;
+}
+
+.nav-bar-left #banner-notifiche{
+    height: 10%;
+    width: 100%;
+    background-color: #8edafc;
+}
+
+.nav-bar-left #input-container{
+    width: 100%;
+    height: 6%;
+    background-color: #fafafa;
+    padding: 8px;
+    display: flex;
+}
+
+#input-container #cerca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    border-radius: 2px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+#lens{
+    width: 70%;
+    padding: 15px;
+}
+
+#input-container #find-user{
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    padding: 6px;
+}
+
+.nav-bar-left #container{
+    width: 100%;
+    height: 76%;
+    display: flex;
+}
+
+#container .utenti{
+    width: 97%;
+    height: 100%;
+    background-color: white;
+}
+
+#container #barra-laterale{
+    width: 3%;
+    height: 706px;
     background-color: grey;
 }
 
+.utenti #container-utente{
+    border-top: 1px solid lightgrey;
+    width: 100%;
+    height: calc(100% / 8);
+    display: flex;
+    justify-content: space-between;
+    background-color: lime;
+    padding: 10px 20px;
+}
+
+#size{
+    width: 59px;
+    border-radius: 50px;
+}
+
+#nav-left #informazioni-utente{
+    float: right;
+    margin-left: 16px;
+}
+
+/* MESSAGES-CONTAINER*/
 .main-container .messages-container{
     height: 100%;
     width: 65%;
+    background-color: hotpink;
+}
+
+.messages-container #nav-top{
+    height: 65px;
+    width: 100%;
+    background-color: #eaeaea;
 }
