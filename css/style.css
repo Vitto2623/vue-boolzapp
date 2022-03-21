@@ -38,12 +38,46 @@ main{
     width: 100%;
     background-color: #eaeaea;
     border-right: 1px solid lightgrey;
+    padding: 7px 11px;
+}
+
+#top-status #size-2{
+    width: 50px;
+    border-radius: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+#top-status .nav-right{
+    line-height: 52px;
+    font-size: 22px;
 }
 
 .nav-bar-left #banner-notifiche{
     height: 10%;
     width: 100%;
     background-color: #8edafc;
+}
+
+#banner-notifiche #info{
+    padding: 20px 19px;
+}
+
+#info span{
+    vertical-align: sub;
+}
+
+#info p{
+    text-decoration-line: underline;
+}
+
+#banner-notifiche .fa-bell-slash{
+    background-color: white;
+    border-radius: 76%;
+    font-size: 19px;
+    padding: 14px 11px;
+    float: left;
+    margin-right: 10px;
 }
 
 .nav-bar-left #input-container{
@@ -84,24 +118,18 @@ main{
 }
 
 #container .utenti{
-    width: 97%;
+    width: 100%;
     height: 100%;
     background-color: white;
 }
 
-#container #barra-laterale{
-    width: 3%;
-    height: 706px;
-    background-color: grey;
-}
+
 
 .utenti #container-utente{
     border-top: 1px solid lightgrey;
     width: 100%;
-    height: calc(100% / 8);
     display: flex;
     justify-content: space-between;
-    background-color: lime;
     padding: 10px 20px;
 }
 
@@ -110,7 +138,7 @@ main{
     border-radius: 50px;
 }
 
-#nav-left #informazioni-utente{
+.nav-left #informazioni-utente{
     float: right;
     margin-left: 16px;
 }
@@ -119,11 +147,110 @@ main{
 .main-container .messages-container{
     height: 100%;
     width: 65%;
-    background-color: hotpink;
 }
 
 .messages-container #nav-top{
     height: 65px;
     width: 100%;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 8px;
+    align-items: center;
+}
+
+#nav-top #size-2{
+    width: 50px;
+    border-radius: 50px;
+    height: 50px;
+}
+
+#nav-top .nav-right{
+    display: flex;
+    align-items: inherit;
+}
+
+.messages-container #area-messaggi{
+    width: 100%;
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+    padding: 54px 73px;
+    overflow-x: scroll;
+}
+
+#area-messaggi #mex-right{
+    height: 150px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+#mex-right #mex-container{
+    height: 55px;
+    width: 300px;
+    background-color: #d5f9ba;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 0px 13px;
+}
+
+
+#mex-container p{
+    position: absolute;
+    bottom: 2px;
+    right: 7px;
+    font-size: 0.80em;
+}
+
+#mex-container li{
+    line-height: 55px;
+    list-style: none;
+    font-size: 1.20em;
+}
+
+#area-messaggi #mex-left{
+    height: 150px;
+    width: 100%;
+    background-color: royalblue;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#mex-left #mex-container{
+    height: 55px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 0px 13px;
+}
+
+.messages-container #nav-bottom{
+    height: 75px;
+    width: 100%;
+    background-color: #f3eeea;
+    justify-content: space-evenly;
+    padding: 13px 23px;
+}
+
+#nav-bottom #input-text{
+    width: 88%;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 13px;
+}
+
+.fa-microphone:before {
+    content: "\f130";
+    font-size: 26px;
+    margin-left: 183%;
+    vertical-align: sub;
 }
