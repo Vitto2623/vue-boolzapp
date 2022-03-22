@@ -6,6 +6,7 @@
 
 body{  
     background-color: #dbdbd2;
+    font-family: 'Roboto', sans-serif;
 }
 
 #top-bar{
@@ -121,8 +122,6 @@ body{
     background-color: white;
 }
 
-
-
 .utenti #container-utente{
     border-top: 1px solid lightgrey;
     width: 100%;
@@ -182,7 +181,7 @@ body{
     margin-left: 500px;
     padding: 5px 10px;
     position: relative;
-    height: 50px;
+    height: 63px;
     margin-bottom: 10px;
 }
 
@@ -199,7 +198,7 @@ body{
     margin-right: 500px;
     margin-top: 50px;
     position: relative;
-    height: 50px;
+    height: 63px;
 }
 
 .messaggio-ricevuto p{

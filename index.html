@@ -10,7 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <!--CSS-->
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Boolzap</title>
 </head>
 <body>
     <main>
@@ -41,7 +44,8 @@
                     </section>
                     <section id="container">
                         <div class="utenti">
-                            <div id="container-utente" v-for="(element, index) in contacts" @click="activeUser(index)">
+                            <div id="container-utente" v-for="(element, index) in contacts" @click="activeUser(index)" 
+                            v-if="element.name.toLowerCase().includes(cercaUtente)">
                                 <nav class="nav-left">
                                     <img  :src="'img/avatar' + element.avatar + '.jpg'" :alt="element.name" class="size">
                                     <div id="informazioni-utente">
@@ -92,11 +96,7 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
+        
     </main>
 
 <script src="js/main.js" type="text/javascript"></script>
