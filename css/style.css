@@ -4,9 +4,7 @@
     padding: 0;
 }
 
-main{
-    height: 1000px;
-    width: 100%;    
+body{  
     background-color: #dbdbd2;
 }
 
@@ -179,7 +177,6 @@ main{
 }
 
 #area-messaggi #mex-right{
-    height: 150px;
     width: 100%;
     background-color: red;
     display: flex;
@@ -188,21 +185,21 @@ main{
 }
 
 #mex-right #mex-container{
-    height: 55px;
-    width: 300px;
+    height: 60px;
     background-color: #d5f9ba;
     border-radius: 10px;
     text-align: left;
     margin-bottom: 10px;
     position: relative;
-    padding: 0px 13px;
+    padding: 6px 13px;
+    font-size: 1.10em;
 }
 
 
-#mex-container p{
+#mex-container  p{
     position: absolute;
-    bottom: 2px;
-    right: 7px;
+    bottom: 3px;
+    right: 6px;
     font-size: 0.80em;
 }
 

@@ -41,9 +41,9 @@
                     </section>
                     <section id="container">
                         <div class="utenti">
-                            <div id="container-utente" v-for="(element, index) in contacts">
+                            <div id="container-utente" v-for="(element, index) in contacts" @click="activeUser(index)">
                                 <nav class="nav-left">
-                                    <img :src="element.avatar" id="size" :alt="element.name">
+                                    <img  :src="'img/avatar' + element.avatar + '.jpg'" :alt="element.name" id="size">
                                     <div id="informazioni-utente">
                                         <h4>{{element.name}}</h4>
                                         <p>Ultimo messaggio inviato</p>
@@ -60,9 +60,9 @@
                 <div class="messages-container">
                     <div id="nav-top">
                         <nav class="nav-left">
-                            <img src="img/avatar_1.jpg" id="size-2" alt="">
+                            <img :src="'img/avatar' + contacts[activeUserId].avatar + '.jpg'" alt="contacts[activeUserId].name" id="size">
                             <div id="informazioni-utente">
-                                <h4 style="margin-top: 11px;">Michele</h4>
+                                <h4 style="margin-top: 11px;">{{contacts[activeUserId].name}}</h4>
                                 <p>Ultimo accesso oggi alle 12:00</p>
                             </div>
                         </nav>
@@ -72,26 +72,14 @@
                             <i class="fa-solid fa-ellipsis-vertical" style="width: 30px; padding: 15px;"></i>
                         </nav>
                     </div>
-                    <div id="area-messaggi" v-for="(element, index) in contacts">
-                        <div id="mex-right">
-                            <ul id="mex-container">
-                                <li></li>
-                                <p>15:30</p>
-                            </ul>
-                            <ul id="mex-container">
-                                <li>prova</li>
-                                <p>15.30</p>
-                            </ul>
+                    <div id="area-messaggi">
+                        <div id="mex-right" :class="{sent : message.status === 'sent'}" v-for='(message, index) in this.contacts[activeUserId].messages'>
+                            <div id="mex-container">
+                                {{message.text}}
+                                <p>{{message.date}}</p>
+                            </div>
                         </div>
                         <div id="mex-left">
-                            <ul id="mex-container">
-                                <li>prova</li>
-                                <p>15:30</p>
-                            </ul>
-                            <ul id="mex-container">
-                                <li>prova</li>
-                                <p>15.30</p>
-                            </ul>
                         </div>
                     </div>
                     <div id="nav-bottom">
