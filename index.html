@@ -19,7 +19,7 @@
                 <div class="nav-bar-left">
                     <section id="top-status">
                         <nav>
-                            <img src="img/avatar_io.jpg" id="size-2" alt="">
+                            <img src="img/avatar_io.jpg" id="size-2" >
                             <span>Sofia</span>
                         </nav>
                         <nav class="nav-right">
@@ -37,13 +37,13 @@
                     </section>
                     <section id="input-container">
                         <button id="cerca"><img src="img/lens.svg" id="lens"></button>
-                        <input type="search" name="cerca-contatto" id="find-user" placeholder="Cerca o inizia una nuova chat">
+                        <input type="search" name="cerca-contatto" id="find-user" placeholder="Cerca o inizia una nuova chat" v-model="cercaUtente">
                     </section>
                     <section id="container">
                         <div class="utenti">
                             <div id="container-utente" v-for="(element, index) in contacts" @click="activeUser(index)">
                                 <nav class="nav-left">
-                                    <img  :src="'img/avatar' + element.avatar + '.jpg'" :alt="element.name" id="size">
+                                    <img  :src="'img/avatar' + element.avatar + '.jpg'" :alt="element.name" class="size">
                                     <div id="informazioni-utente">
                                         <h4>{{element.name}}</h4>
                                         <p>Ultimo messaggio inviato</p>
@@ -60,31 +60,33 @@
                 <div class="messages-container">
                     <div id="nav-top">
                         <nav class="nav-left">
-                            <img :src="'img/avatar' + contacts[activeUserId].avatar + '.jpg'" alt="contacts[activeUserId].name" id="size">
+                            <img :src="'img/avatar' + contacts[activeUserId].avatar + '.jpg'" alt="contacts[activeUserId].name" class="size">
                             <div id="informazioni-utente">
                                 <h4 style="margin-top: 11px;">{{contacts[activeUserId].name}}</h4>
                                 <p>Ultimo accesso oggi alle 12:00</p>
                             </div>
                         </nav>
                         <nav class="nav-right">
-                            <img src="img/lens.svg" style="width: 25px; margin-right: 5px;"></button>
+                            <img src="img/lens.svg" style="width: 25px; margin-right: 5px;">
                             <i class="fa-solid fa-paperclip" style="width: 30px; padding: 9px;"></i>
                             <i class="fa-solid fa-ellipsis-vertical" style="width: 30px; padding: 15px;"></i>
                         </nav>
                     </div>
                     <div id="area-messaggi">
-                        <div id="mex-right" :class="{sent : message.status === 'sent'}" v-for='(message, index) in this.contacts[activeUserId].messages'>
-                            <div id="mex-container">
+                        <div class="box">
+                            <div class="messaggio-inviato" :class="{sent : message.status === 'sent'}" v-if="message.status === 'sent'" v-for='(message, index) in this.contacts[activeUserId].messages'>
+                                {{message.text}}
+                                <p>{{message.date}}</p>
+                            </div>
+                            <div v-else class="messaggio-ricevuto">
                                 {{message.text}}
                                 <p>{{message.date}}</p>
                             </div>
                         </div>
-                        <div id="mex-left">
-                        </div>
                     </div>
                     <div id="nav-bottom">
                         <i class="fas fa-smile" style="font-size: 26px; margin-right: 26px; vertical-align: sub;"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" id="input-text">
+                        <input type="text" placeholder="Scrivi un messaggio" id="input-text" v-model="userText" @keyup.enter="messagePush(activeUserId)">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>

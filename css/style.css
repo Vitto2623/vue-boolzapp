@@ -131,7 +131,7 @@ body{
     padding: 10px 20px;
 }
 
-#size{
+.size{
     width: 59px;
     border-radius: 50px;
 }
@@ -176,57 +176,36 @@ body{
     overflow-x: scroll;
 }
 
-#area-messaggi #mex-right{
-    width: 100%;
-    background-color: red;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-}
-
-#mex-right #mex-container{
-    height: 60px;
+.box .messaggio-inviato{
     background-color: #d5f9ba;
     border-radius: 10px;
-    text-align: left;
-    margin-bottom: 10px;
+    margin-left: 500px;
+    padding: 5px 10px;
     position: relative;
-    padding: 6px 13px;
-    font-size: 1.10em;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
-
-#mex-container  p{
+.messaggio-inviato p{
     position: absolute;
-    bottom: 3px;
-    right: 6px;
-    font-size: 0.80em;
+    bottom: 0px;
+    right: 10px;
 }
 
-#mex-container li{
-    line-height: 55px;
-    list-style: none;
-    font-size: 1.20em;
-}
-
-#area-messaggi #mex-left{
-    height: 150px;
-    width: 100%;
-    background-color: royalblue;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-#mex-left #mex-container{
-    height: 55px;
-    width: 300px;
+.box .messaggio-ricevuto{
     background-color: white;
     border-radius: 10px;
-    text-align: left;
-    margin-bottom: 10px;
+    padding: 5px 10px;
+    margin-right: 500px;
+    margin-top: 50px;
     position: relative;
-    padding: 0px 13px;
+    height: 50px;
+}
+
+.messaggio-ricevuto p{
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
 }
 
 .messages-container #nav-bottom{

@@ -165,10 +165,33 @@ const app = new Vue({
             }
         ],
         activeUserId: 0,
+        userText: '',
+        cercaUtente: '',
+        risposta:[
+            'ok'
+        ]
     },
     methods: {
+        rispostaRicevuta : function(){
+            let random = Math.floor(Math.random()*((this.risposta.length)))
+            return this.risposta[random]
+        },
         activeUser : function(index) {
             this.activeUserId = index
         },
-    }
+        messagePush : function(index) {
+            const messageToPush = this.userText
+            this.contacts[index].messages.push({
+                text: messageToPush,
+                status: 'sent',
+            })
+            this.userText = ''
+            setTimeout( () => {
+                this.contacts[index].messages.push({
+                    text : this.rispostaRicevuta(),
+                    status : 'received',
+            })
+            }, 1000)
+        },
+    },
 });
