@@ -1,6 +1,7 @@
 const app = new Vue({
     el:'#root',
     data:{
+        activeUserId: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -164,31 +165,51 @@ const app = new Vue({
                 ],
             }
         ],
-        activeUserId: 0,
         userText: '',
         cercaUtente: '',
+        // risposte
         risposta:[
-            'ok'
+            'ok',
+            'Va bene',
+            'Weeee',
+            'Oggi sto male',
+            'Facciamo un\'altro giorno',
+            'Oggi vorrei mangiare della pizza',
+            'Vediamoci stasera',
+            'Può essere che farò tardi',
+            'Che bella risposta!',
+            'Ti capisco',
+            'Ti sto leggendo nella mente :)',
+            'So già la tua prossima domanda XD',
+            'Sono un\'IA molto sviluppata',
         ]
     },
     methods: {
         rispostaRicevuta : function(){
-            let random = Math.floor(Math.random()*((this.risposta.length)))
+            let random = Math.floor(Math.random()*((this.risposta.length)-1)+1)
             return this.risposta[random]
         },
+        /** 
+         * 
+         * @param {*} index The index to be updated
+         */
         activeUser : function(index) {
-            this.activeUserId = index
+            this.activeUserId = index;
         },
         messagePush : function(index) {
+            const now = dayjs();
             const messageToPush = this.userText
             this.contacts[index].messages.push({
                 text: messageToPush,
+                date: now.format('H:mm:ss'),
                 status: 'sent',
             })
             this.userText = ''
             setTimeout( () => {
+                const now = dayjs();
                 this.contacts[index].messages.push({
                     text : this.rispostaRicevuta(),
+                    date: now.format('H:mm:ss'),
                     status : 'received',
             })
             }, 1000)

@@ -7,6 +7,7 @@
 body{  
     background-color: #dbdbd2;
     font-family: 'Roboto', sans-serif;
+    min-width: 1637px;
 }
 
 #top-bar{
@@ -25,7 +26,7 @@ body{
 }
 
 .main-container .nav-bar-left{
-    height: 90%;
+    height: 100%;
     width: 35%;
 }
 
@@ -120,14 +121,25 @@ body{
     width: 100%;
     height: 100%;
     background-color: white;
+    overflow: scroll;
 }
 
-.utenti #container-utente{
+.utenti .container-utente{
     border-top: 1px solid lightgrey;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 18px 20px;
+    height: 95px;
+}
+
+.container-utente:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.container-utente.active{
+    background-color: #dadede;
 }
 
 .size{
@@ -147,7 +159,7 @@ body{
 }
 
 .messages-container #nav-top{
-    height: 65px;
+    height: 72px;
     width: 100%;
     background-color: #eaeaea;
     display: flex;
@@ -175,44 +187,47 @@ body{
     overflow-x: scroll;
 }
 
-.box .messaggio-inviato{
-    background-color: #d5f9ba;
+#area-messaggi #flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#flex .messaggio{
     border-radius: 10px;
-    margin-left: 500px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     position: relative;
     height: 63px;
     margin-bottom: 10px;
+    min-width: 75px;
 }
 
-.messaggio-inviato p{
-    position: absolute;
-    bottom: 0px;
-    right: 10px;
+#flex .messaggio.sent{
+    background-color: #d5f9ba;
 }
 
-.box .messaggio-ricevuto{
+#flex .messaggio.received{
     background-color: white;
-    border-radius: 10px;
-    padding: 5px 10px;
-    margin-right: 500px;
-    margin-top: 50px;
-    position: relative;
-    height: 63px;
+    align-self: flex-start;
+    width: 220px;
+    height: 68px;
 }
 
-.messaggio-ricevuto p{
+.messaggio p{
     position: absolute;
     bottom: 0px;
     right: 10px;
+    font-size: 0.82em;
+    padding: 0px 10px;
+    color: grey;
 }
 
 .messages-container #nav-bottom{
-    height: 75px;
+    height: 68px;
     width: 100%;
     background-color: #f3eeea;
     justify-content: space-evenly;
-    padding: 13px 23px;
+    padding: 9px 23px;
 }
 
 #nav-bottom #input-text{
@@ -228,4 +243,9 @@ body{
     font-size: 26px;
     margin-left: 183%;
     vertical-align: sub;
+    color: #6b7376;
+}
+
+.fa-smile{
+    color:  grey;
 }

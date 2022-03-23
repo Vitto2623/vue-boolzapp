@@ -13,17 +13,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- CDN example (unpkg) DATE-->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js"></script>
     <title>Boolzap</title>
 </head>
 <body>
     <main>
+
         <div id="top-bar">
+
             <div class="main-container" id="root">
+
+                <!-- Barra laterale contatti -->
                 <div class="nav-bar-left">
+                    <!-- Header -->
                     <section id="top-status">
-                        <nav>
-                            <img src="img/avatar_io.jpg" id="size-2" >
-                            <span>Sofia</span>
+                        <nav class="nav-left">
+                            <img src="img/BC274CB7-48DB-484D-A48E-359EB7058BB2.jpeg" id="size-2" >
+                            <span>Vittorio</span>
                         </nav>
                         <nav class="nav-right">
                             <i class="fa-solid fa-circle-notch" style="margin-right: 10px;"></i>
@@ -31,6 +39,9 @@
                             <i class="fa-solid fa-ellipsis-vertical" style="margin-right: 10px;"></i>
                         </nav>
                     </section>
+                    <!--/ Header -->
+
+                    <!-- Main -->
                     <section id="banner-notifiche">
                         <div id="info">
                             <i class="fas fa-bell-slash"></i>
@@ -38,13 +49,21 @@
                             <p>Attiva notifiche desktop</p>
                         </div>
                     </section>
+
                     <section id="input-container">
                         <button id="cerca"><img src="img/lens.svg" id="lens"></button>
-                        <input type="search" name="cerca-contatto" id="find-user" placeholder="Cerca o inizia una nuova chat" v-model="cercaUtente">
+                        <input type="search" name="cerca-contatto" id="find-user" 
+                        placeholder="Cerca o inizia una nuova chat" 
+                        v-model="cercaUtente">
                     </section>
+
                     <section id="container">
+                        <!---Lista utenti -->
                         <div class="utenti">
-                            <div id="container-utente" v-for="(element, index) in contacts" @click="activeUser(index)" 
+                            <!-- Contenuto informazioni utente -->
+                            <div class="container-utente" :class="(activeUserId === index) ? 'active' : ''" 
+                            v-for="(element, index) in contacts" 
+                            @click="activeUser(index)" 
                             v-if="element.name.toLowerCase().includes(cercaUtente)">
                                 <nav class="nav-left">
                                     <img  :src="'img/avatar' + element.avatar + '.jpg'" :alt="element.name" class="size">
@@ -57,15 +76,22 @@
                                     <p>12:00</p>
                                 </nav>
                             </div>
+                            <!--/ Contenuto informazioni utente -->
                         </div>
+                        <!--/ Lista utenti-->
                     </section>
+                    <!--/ Main -->
                 </div>
-                <!---->
+                <!--/ Barra laterale contatti -->
+
+                <!-- Sezione chat-->
                 <div class="messages-container">
+
+                    <!-- Header -->
                     <div id="nav-top">
                         <nav class="nav-left">
                             <img :src="'img/avatar' + contacts[activeUserId].avatar + '.jpg'" alt="contacts[activeUserId].name" class="size">
-                            <div id="informazioni-utente">
+                            <div id="informazioni-utente" v-if="activeUserId >= 0">
                                 <h4 style="margin-top: 11px;">{{contacts[activeUserId].name}}</h4>
                                 <p>Ultimo accesso oggi alle 12:00</p>
                             </div>
@@ -76,28 +102,35 @@
                             <i class="fa-solid fa-ellipsis-vertical" style="width: 30px; padding: 15px;"></i>
                         </nav>
                     </div>
+                    <!--/ Header -->
+
+                    <!-- Contenitore principale messaggi -->
                     <div id="area-messaggi">
-                        <div class="box">
-                            <div class="messaggio-inviato" :class="{sent : message.status === 'sent'}" v-if="message.status === 'sent'" v-for='(message, index) in this.contacts[activeUserId].messages'>
-                                {{message.text}}
-                                <p>{{message.date}}</p>
-                            </div>
-                            <div v-else class="messaggio-ricevuto">
+                        <div id="flex">
+                            <div class="messaggio" v-for='(message, index) in contacts[activeUserId].messages' :class="(message.status == 'received') ? 'received': 'sent'">
                                 {{message.text}}
                                 <p>{{message.date}}</p>
                             </div>
                         </div>
                     </div>
+                    <!--/ Contenitore principale messaggi -->
+
+                    <!-- Footer -->
                     <div id="nav-bottom">
                         <i class="fas fa-smile" style="font-size: 26px; margin-right: 26px; vertical-align: sub;"></i>
                         <input type="text" placeholder="Scrivi un messaggio" id="input-text" v-model="userText" @keyup.enter="messagePush(activeUserId)">
                         <i class="fas fa-microphone"></i>
                     </div>
+                    <!--/ Footer -->
+
                 </div>
+                <!--/ Sezione chat -->
+
             </div>
         </div>
         
     </main>
+
 
 <script src="js/main.js" type="text/javascript"></script>
 </body>
